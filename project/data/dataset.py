@@ -5,7 +5,7 @@ from torch.utils.data import Dataset
 
 class PicturePathsDataset(Dataset):
     def __init__(self, path: Path) -> None:
-        self.paths: tuple[Path] = self._get_image_paths(path)
+        self.paths: tuple[Path, ...] = self._get_image_paths(path)
 
     def _get_image_paths(self, root: Path) -> tuple[Path, ...]:
         image_paths: list[Path] = list()
