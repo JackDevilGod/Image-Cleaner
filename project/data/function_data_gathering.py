@@ -43,7 +43,7 @@ def count_pictures(path: Path, remove_extra: bool = False) -> int:
 
 
 def main():
-    data_path = Path.joinpath(Path(__file__).parents[2], "data")
+    data_path = Path.joinpath(Path(__file__).parents[2], "data_storage", "data")
     print(data_path)
     print([_ for _ in data_path.iterdir()])
 
