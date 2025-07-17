@@ -35,13 +35,17 @@ class PicturePathsDataset(Dataset):
 
 
 def main():
+    from random import shuffle
+
     test = PicturePathsDataset(Path())
 
     print(len(test))
 
     import matplotlib.pyplot as plt
 
-    for u in range(len(test)):
+    index_list = [_ for _ in range(len(test))]
+    shuffle(index_list)
+    for u in index_list:
         plt.imshow(test[u])
         plt.show()
 
