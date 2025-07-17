@@ -1,3 +1,5 @@
+import numpy as np
+
 from PIL import Image
 from pathlib import Path
 from torch.utils.data import Dataset
@@ -25,8 +27,11 @@ class PicturePathsDataset(Dataset):
     def __len__(self) -> int:
         return len(self.paths)
 
-    def __getitem__(self, index: int) -> Image.Image:
-        return Image.open(self.paths[index])
+    def __getitem__(self, index: int) -> np.ndarray:
+        loaded_image = Image.open(self.paths[index]).convert("RGB")
+        rgb_image = loaded_image.convert("RGB")
+
+        return np.array(rgb_image)
 
 
 def main():
